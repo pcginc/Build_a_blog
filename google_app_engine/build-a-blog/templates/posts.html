@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Blog blogs</title>
+
+    <!-- This will only work if you fit it into app.yaml: -->
+      <link
+        type="text/css"
+
+    />
+  </head>
+
+  <body>
+
+    <style>
+      body{ font-family: Serif }
+      a{ font-family: Serif }
+    </style>
+
+    <h1>Writer's Blo...g</h1>
+    <!-- Make into relative image path: <img src="file:///Users/Ruthie/blog/Pencil.jpg"/> -->
+    <img src="http://www.ci.berkeley.ca.us/uploadedImages/Manager/Economic_Development/Pencil%20on%20paper%20-%20250.jpg"
+    />
+    <h3>Click <a href="/new">here</a> to make a new blog.</h3>
+
+    <!-- For long posts: only preview first 5 words, then follow with ... in preview -->
+    <form>
+      <h4>Previous Posts:</h4>
+    {% for blog in blogs %}
+      <div class="blog">
+        <div class="blog-title"><a href='/view/{{blog.key().id()}}'>{{blog.title}}</a></div>
+        <pre class="blog-body">{{blog.blog}}</pre>
+     </div>
+    {% endfor %}
+
+    <h3>Click <a href="/all">here</a> to view all past blogs.</h3>
+    </form>
+
+  </body>
+</html>
